@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ben Talion's World</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(to right, #0a0a0a, #1a1a1a);
+            color: #fff;
+        }
+        .hero {
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 20%, rgba(0,0,0,0.9) 100%);
+        }
+        .btn:hover {
+            box-shadow: 0 0 10px 5px rgba(255, 215, 0, 0.8);
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen">
+    <div class="hero text-center p-10 rounded-lg shadow-lg w-3/4">
+        <h1 class="text-5xl font-bold text-gray-200 tracking-wide">Ben Talion's World</h1>
+        <p class="mt-4 text-lg text-gray-400">Eine Welt voller Magie, dunkler Kräfte und leuchtender Hoffnung.</p>
+        
+        <div class="mt-6 flex gap-4 justify-center">
+            <a href="#licht" class="btn px-6 py-3 bg-yellow-500 text-black font-bold rounded-lg hover:scale-105 transition">Wähle das Licht</a>
+            <a href="#schatten" class="btn px-6 py-3 bg-purple-800 text-white font-bold rounded-lg hover:scale-105 transition">Tauche in die Schatten</a>
+        </div>
+    </div>
+</body>
+</html>
