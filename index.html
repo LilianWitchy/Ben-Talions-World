@@ -1,41 +1,62 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ben Talion's World</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles.css"> <!-- Hier wird die CSS-Datei eingebunden -->
+    
+    <!-- Externe CSS-Datei -->
+    <link rel="stylesheet" href="styles.css">
 </head>
+<body>
 
-    
+    <!-- Menü-Button -->
+    <button id="menu-btn" class="fixed top-4 left-4 bg-gray-800 text-white px-4 py-2 rounded">
+        ☰ Menü
+    </button>
 
-<body class="flex flex-col items-center justify-center min-h-screen">
-    <div class="header">Ben Talion's World</div>
-    
-    <div class="menu-button" onclick="toggleMenu()">☰</div>
-    <div class="menu" id="menu">
-        <ul class="text-white text-lg" onclick="toggleMenu()">
-            <li class="py-2"><a href="#">Startseite</a></li>
-            <li class="py-2"><a href="#">Über mich</a></li>
-            <li class="py-2"><a href="#">Meine Bücher</a></li>
-            <li class="py-2"><a href="#">Meine Mission für die Zukunft</a></li>
-            <li class="py-2"><a href="#">Bücher, die ich empfehle</a></li>
-            <li class="py-2"><a href="#">Impressum</a></li>
-            <li class="py-2"><a href="#">AGB</a></li>
+    <!-- Seitenmenü -->
+    <nav id="side-menu" class="fixed top-0 left-0 w-64 h-full bg-black bg-opacity-90 transform -translate-x-full transition-transform duration-300 p-4">
+        <button id="close-btn" class="text-white text-2xl">&times;</button>
+        <ul class="mt-4 space-y-4 text-white">
+            <li><a href="#" class="hover:text-yellow-400">Startseite</a></li>
+            <li><a href="#" class="hover:text-yellow-400">Über mich</a></li>
+            <li><a href="#" class="hover:text-yellow-400">Meine Bücher</a></li>
+            <li><a href="#" class="hover:text-yellow-400">Meine Mission für die Zukunft</a></li>
+            <li><a href="#" class="hover:text-yellow-400">Bücher, die ich empfehle</a></li>
+            <li><a href="#" class="hover:text-yellow-400">Impressum</a></li>
+            <li><a href="#" class="hover:text-yellow-400">AGB</a></li>
         </ul>
-    </div>
-    
-    <div class="hero w-3/4">
-        <h1 class="text-5xl font-bold glow">Ben Talion's World</h1>
+    </nav>
+
+    <!-- Header -->
+    <header class="text-center text-yellow-400 text-4xl font-bold p-6 bg-black bg-opacity-80">
+        Ben Talion's World
+    </header>
+
+    <!-- Hero-Bereich -->
+    <section class="text-center text-white p-8">
+        <h1 class="text-5xl font-bold">Willkommen in meiner Welt</h1>
         <p class="mt-4 text-lg text-gray-300">Ein Reich zwischen Licht und Schatten, in dem uralte Kraftsteine über das Schicksal entscheiden.</p>
-    </div>
-    
+    </section>
+
+    <!-- JavaScript für das Menü -->
     <script>
-        function toggleMenu() {
-            let menu = document.getElementById("menu");
-            menu.classList.toggle("active");
-        }
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const sideMenu = document.getElementById('side-menu');
+
+        menuBtn.addEventListener('click', () => {
+            sideMenu.classList.remove('-translate-x-full');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            sideMenu.classList.add('-translate-x-full');
+        });
     </script>
+
 </body>
 </html>
