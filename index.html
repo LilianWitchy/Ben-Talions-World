@@ -7,9 +7,22 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
-            background: radial-gradient(circle, #0d1b2a, #1b263b, #415a77, #778da9);
-            color: #fff;
+            background: radial-gradient(circle, #0a0a0a, #1a0033, #29005d, #3d0066);
+            background-image: url('https://source.unsplash.com/1600x900/?universe,stars');
+            background-size: cover;
+            background-position: center;
+            color: gold;
             font-family: 'Cinzel', serif;
+        }
+        .header {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
         }
         .hero {
             position: relative;
@@ -17,22 +30,7 @@
             padding: 50px;
             border-radius: 10px;
             text-align: center;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-        }
-        .glow {
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
-        }
-        .stone {
-            width: 50px;
-            height: 50px;
-            background: radial-gradient(circle, rgba(0, 255, 255, 0.9), rgba(0, 0, 0, 0.8));
-            border-radius: 50%;
-            position: absolute;
-            animation: float 3s infinite ease-in-out;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
         }
         .menu {
             position: fixed;
@@ -60,9 +58,10 @@
     </style>
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen">
+    <div class="header">Ben Talion's World</div>
     <div class="menu-button" onclick="toggleMenu()">☰</div>
     <div class="menu" id="menu">
-        <ul class="text-white text-lg">
+        <ul class="text-white text-lg" onclick="toggleMenu()">
             <li class="py-2"><a href="#">Startseite</a></li>
             <li class="py-2"><a href="#">Über mich</a></li>
             <li class="py-2"><a href="#">Meine Bücher</a></li>
@@ -76,24 +75,13 @@
     <div class="hero w-3/4">
         <h1 class="text-5xl font-bold glow">Ben Talion's World</h1>
         <p class="mt-4 text-lg text-gray-300">Ein Reich zwischen Licht und Schatten, in dem uralte Kraftsteine über das Schicksal entscheiden.</p>
-        
-        <div class="relative flex justify-center mt-6">
-            <div class="stone" style="top: -20px; left: 20%;"></div>
-            <div class="stone" style="top: -40px; left: 50%; animation-delay: 1s;"></div>
-            <div class="stone" style="top: -20px; left: 80%; animation-delay: 2s;"></div>
-        </div>
-        
-        <div class="mt-6 flex gap-4 justify-center">
-            <a href="#licht" class="px-6 py-3 bg-blue-500 text-white font-bold rounded-lg hover:scale-105 transition shadow-lg">Wähle das Licht</a>
-            <a href="#schatten" class="px-6 py-3 bg-purple-700 text-white font-bold rounded-lg hover:scale-105 transition shadow-lg">Tauche in die Schatten</a>
-        </div>
     </div>
     
     <script>
         function toggleMenu() {
-            document.getElementById("menu").classList.toggle("active");
+            let menu = document.getElementById("menu");
+            menu.classList.toggle("active");
         }
     </script>
 </body>
 </html>
-
