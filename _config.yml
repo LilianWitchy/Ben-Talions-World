@@ -1,0 +1,4 @@
+permalink: pretty
+baseurl: "/Ben-Talions-World"  # WICHTIG für GitHub Pages
+url: "https://lilianwitchy.github.io"  # Deine GitHub Pages URL
+theme: jekyll-theme-slate
