@@ -7,25 +7,49 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
-            background: linear-gradient(to right, #0a0a0a, #1a1a1a);
+            background: linear-gradient(to right, #1a1a2e, #16213e, #0f3460);
             color: #fff;
+            font-family: 'Cinzel', serif;
         }
         .hero {
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 20%, rgba(0,0,0,0.9) 100%);
+            position: relative;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 50px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
         }
-        .btn:hover {
-            box-shadow: 0 0 10px 5px rgba(255, 215, 0, 0.8);
+        .glow {
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+        }
+        .stone {
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.9), rgba(0, 0, 0, 0.8));
+            border-radius: 50%;
+            position: absolute;
+            animation: float 3s infinite ease-in-out;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
         }
     </style>
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen">
-    <div class="hero text-center p-10 rounded-lg shadow-lg w-3/4">
-        <h1 class="text-5xl font-bold text-gray-200 tracking-wide">Ben Talion's World</h1>
-        <p class="mt-4 text-lg text-gray-400">Eine Welt voller Magie, dunkler Kräfte und leuchtender Hoffnung.</p>
+    <div class="hero w-3/4">
+        <h1 class="text-5xl font-bold glow">Ben Talion's World</h1>
+        <p class="mt-4 text-lg text-gray-300">Ein Reich zwischen Licht und Schatten, in dem uralte Kraftsteine über das Schicksal entscheiden.</p>
+        
+        <div class="relative flex justify-center mt-6">
+            <div class="stone" style="top: -20px; left: 20%;"></div>
+            <div class="stone" style="top: -40px; left: 50%; animation-delay: 1s;"></div>
+            <div class="stone" style="top: -20px; left: 80%; animation-delay: 2s;"></div>
+        </div>
         
         <div class="mt-6 flex gap-4 justify-center">
-            <a href="#licht" class="btn px-6 py-3 bg-yellow-500 text-black font-bold rounded-lg hover:scale-105 transition">Wähle das Licht</a>
-            <a href="#schatten" class="btn px-6 py-3 bg-purple-800 text-white font-bold rounded-lg hover:scale-105 transition">Tauche in die Schatten</a>
+            <a href="#licht" class="px-6 py-3 bg-blue-500 text-white font-bold rounded-lg hover:scale-105 transition shadow-lg">Wähle das Licht</a>
+            <a href="#schatten" class="px-6 py-3 bg-purple-700 text-white font-bold rounded-lg hover:scale-105 transition shadow-lg">Tauche in die Schatten</a>
         </div>
     </div>
 </body>
