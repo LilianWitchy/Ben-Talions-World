@@ -42,19 +42,29 @@
     </p>
 
     <!-- JavaScript für das Menü -->
-    <script>
-        const menuBtn = document.getElementById('menu-btn');
-        const closeBtn = document.getElementById('close-btn');
-        const sideMenu = document.getElementById('side-menu');
+   <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const sideMenu = document.getElementById('side-menu');
 
-        menuBtn.addEventListener('click', () => {
-            sideMenu.classList.remove('-translate-x-full');
-        });
+    // Öffnen des Menüs
+    menuBtn.addEventListener('click', () => {
+        sideMenu.classList.remove('-translate-x-full'); // Menü öffnen
+    });
 
-        closeBtn.addEventListener('click', () => {
-            sideMenu.classList.add('-translate-x-full');
-        });
-    </script>
+    // Schließen des Menüs
+    closeBtn.addEventListener('click', () => {
+        sideMenu.classList.add('-translate-x-full'); // Menü schließen
+    });
+
+    // Optional: Menü schließen, wenn man außerhalb des Menüs klickt
+    document.addEventListener('click', (event) => {
+        if (!sideMenu.contains(event.target) && !menuBtn.contains(event.target)) {
+            sideMenu.classList.add('-translate-x-full'); // Menü schließen
+        }
+    });
+</script>
+
 
 </body>
 </html>
