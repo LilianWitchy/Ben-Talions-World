@@ -1,15 +1,21 @@
-/* Entferne alte Hintergrund-Designs und ersetze sie mit einem dunklen Fallback */
+/* Entferne alte Hintergrund-Designs und ersetze sie mit dem Bild als Hintergrund */
 body {
-    background-color: black; /* Falls das Bild nicht geladen wird */
+    background: url('https://raw.githubusercontent.com/LilianWitchy/Ben-Talions-World/main/universum.jpg') no-repeat center center fixed; /* Hintergrundbild */
+    background-size: cover; /* Bild auf die gesamte Seite skalieren */
     color: gold;
     font-family: 'Cinzel', serif;
+}
+
+/* Fallback, falls das Bild nicht geladen wird */
+body {
+    background-color: black; /* Falls das Bild nicht geladen wird */
 }
 
 /* Statisches, offenes Menü */
 nav {
     width: 16rem; /* 64 Tailwind-Einheiten */
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.9); /* Hintergrund des Menüs */
     padding: 1rem;
 }
 
@@ -24,7 +30,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: yellow;
+    color: yellow; /* Farbe bei Hover */
 }
 
 /* Hauptinhalt nach rechts verschieben */
