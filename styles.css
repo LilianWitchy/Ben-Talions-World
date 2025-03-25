@@ -1,3 +1,17 @@
+/* Schatten für den Header-Text */
+header {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Schattierung für die Überschrift */
+}
+
+/* Schatten für den normalen Text */
+p {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Schattierung für den Fließtext */
+}
+
+/* Für das gesamte Menü (kann auch für Links angewendet werden) */
+nav ul li a {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Schattierung der Links im Menü */
+}
 /* Entferne alte Hintergrund-Designs und ersetze sie mit dem Bild als Hintergrund */
 body {
     background: url('https://raw.githubusercontent.com/LilianWitchy/Ben-Talions-World/main/universum.jpg') no-repeat center center fixed; /* Hintergrundbild */
