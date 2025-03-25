@@ -1,4 +1,4 @@
-/* Entferne alte Hintergrund-Designs und ersetze sie mit dem Bild als Hintergrund */
+/* Hintergrundbild einfügen */
 body {
     background: url('https://raw.githubusercontent.com/LilianWitchy/Ben-Talions-World/main/universum.jpg') no-repeat center center fixed;
     background-size: cover;
@@ -67,6 +67,11 @@ header::before {
     background-color: black;
     opacity: 0.5; /* Leichte Transparenz */
     z-index: -1;
+}
+
+/* Stil für den normalen Text */
+p {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Schattierung des Fließtextes */
 }
 
 /* Stil für den normalen Text */
