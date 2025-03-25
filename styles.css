@@ -1,21 +1,17 @@
-/* Hintergrundbild einfügen */
+/* Hintergrundbild und allgemeine Gestaltung */
 body {
     background: url('https://raw.githubusercontent.com/LilianWitchy/Ben-Talions-World/main/universum.jpg') no-repeat center center fixed;
     background-size: cover;
     color: gold;
     font-family: 'Cinzel', serif;
-}
-
-/* Fallback, falls das Bild nicht geladen wird */
-body {
-    background-color: black;
+    margin: 0;
 }
 
 /* Statisches, offenes Menü */
 nav {
-    width: 16rem;
+    width: 16rem; /* Breite des Menüs */
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.9); /* Dunkler Hintergrund */
     padding: 1rem;
 }
 
@@ -27,7 +23,7 @@ nav ul li a {
     display: block;
     padding: 10px 0;
     color: white;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Schattierung der Links */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Schattierung für bessere Lesbarkeit */
 }
 
 nav ul li a:hover {
@@ -36,7 +32,7 @@ nav ul li a:hover {
 
 /* Hauptinhalt nach rechts verschieben */
 div {
-    margin-left: 16rem;
+    margin-left: 16rem; /* Gleiche Breite wie das Menü */
     padding: 1.5rem;
     text-align: center;
 }
@@ -49,11 +45,11 @@ footer {
     padding-top: 1rem;
 }
 
-/* Stil für den Header-Bereich */
+/* Stil für den Header */
 header {
     position: relative;
     display: inline-block;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Schattierung der Überschrift */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Textschatten für bessere Lesbarkeit */
 }
 
 /* Schwarzer Balken hinter der Überschrift */
