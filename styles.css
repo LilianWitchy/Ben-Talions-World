@@ -1,27 +1,23 @@
-/* Allgemeine Körperstile */
+
+/* Entferne alte Hintergrund-Designs und ersetze sie mit dem Bild als Hintergrund */
 body {
-    background-color: black; /* Standard-Hintergrundfarbe, falls das Bild nicht geladen wird */
-    color: white; /* Textfarbe */
+    background: url('https://raw.githubusercontent.com/LilianWitchy/Ben-Talions-World/main/universum.jpg') no-repeat center center fixed; /* Hintergrundbild */
+    background-size: cover; /* Bild auf die gesamte Seite skalieren */
+    color: gold;
     font-family: 'Cinzel', serif;
 }
 
-/* Hintergrundbild mit Positionierung */
+/* Fallback, falls das Bild nicht geladen wird */
 body {
-    background-image: url('https://raw.githubusercontent.com/dein-github-LilianWitchy/Ben-Talions-World/main/universum.jpg');
-    background-size: cover; /* Bild deckt den gesamten Bildschirm ab */
-    background-position: center center; /* Bild wird in der Mitte des Bildschirms ausgerichtet */
-    background-attachment: fixed; /* Bild bleibt beim Scrollen fixiert */
+    background-color: black; /* Falls das Bild nicht geladen wird */
 }
 
-/* Seitenmenü */
+/* Statisches, offenes Menü */
 nav {
-    width: 16rem; /* Menübreite */
-    height: 100vh; /* Volle Bildschirmhöhe */
-    background-color: rgba(0, 0, 0, 0.9); /* Transparentes schwarzes Menü */
+    width: 16rem; /* 64 Tailwind-Einheiten */
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9); /* Hintergrund des Menüs */
     padding: 1rem;
-    position: fixed; /* Fixiert das Menü links */
-    top: 0;
-    left: 0;
 }
 
 /* Menü-Links */
@@ -35,43 +31,20 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: yellow;
+    color: yellow; /* Farbe bei Hover */
 }
 
-/* Hauptinhalt, der rechts verschoben wird */
+/* Hauptinhalt nach rechts verschieben */
 div {
     margin-left: 16rem; /* Gleiche Breite wie das Menü */
     padding: 1.5rem;
     text-align: center;
 }
 
-/* Schwarzer Balken hinter dem Text im Header */
-header {
-    background-color: rgba(0, 0, 0, 0.6); /* Halbtransparenter schwarzer Hintergrund */
-    padding: 0.5rem; /* Etwas Padding für den Header */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8); /* Sanfter Schatten für den Header */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Textschatten für bessere Lesbarkeit */
-    margin-bottom: 1rem; /* Abstand unter der Überschrift */
-}
-
-/* Schwarzer Balken unter dem Text */
-div p {
-    background-color: rgba(0, 0, 0, 0.6); /* Halbtransparenter Hintergrund hinter dem Text */
-    padding: 1rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8); /* Sanfter Schatten */
-    max-width: 800px; /* Maximale Breite für den Text */
-    margin: 0 auto; /* Zentriert den Textbereich */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Textschatten für bessere Lesbarkeit */
-}
-
-/* Fußzeile */
+/* Fußzeile ebenfalls nach rechts verschieben */
 footer {
-    margin-left: 16rem; /* Gleiche Breite wie das Menü */
+    margin-left: 16rem;
     text-align: center;
     color: gray;
     padding-top: 1rem;
 }
-
-/* Allgemeine Schatteneffekte */
-.shadow-lg {
-    box-shadow: 0 10px 20px rgba(0, 0,
