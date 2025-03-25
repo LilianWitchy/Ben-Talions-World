@@ -1,4 +1,3 @@
-
 /* Entferne alte Hintergrund-Designs und ersetze sie mit dem Bild als Hintergrund */
 body {
     background: url('https://raw.githubusercontent.com/LilianWitchy/Ben-Talions-World/main/universum.jpg') no-repeat center center fixed; /* Hintergrundbild */
