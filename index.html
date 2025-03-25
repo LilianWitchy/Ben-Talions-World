@@ -13,9 +13,19 @@
 </head>
 <body class="bg-black text-white">
     
+    <!-- Menü-Button -->
+    <button id="menu-btn" class="fixed top-4 left-4 bg-gray-800 text-white px-4 py-2 rounded">
+        ☰ Menü
+    </button>
+
     <!-- Seitenmenü -->
-    <nav class="fixed top-0 left-0 w-64 h-full bg-black bg-opacity-90 p-4">
-        <ul class="mt-4 space-y-4 text-white">
+    <nav id="side-menu" class="fixed top-0 left-0 w-64 h-full bg-black bg-opacity-90 p-4 transform -translate-x-full transition-transform duration-300">
+        <!-- Schließen-Button -->
+        <button id="close-btn" class="absolute top-4 right-4 text-white text-2xl">
+            &times;
+        </button>
+
+        <ul class="mt-10 space-y-4 text-white">
             <li><a href="index.html" class="hover:text-yellow-400">Startseite</a></li>
             <li><a href="#" class="hover:text-yellow-400">Über mich</a></li>
             <li><a href="meinebücher.html" class="hover:text-yellow-400">Meine Bücher</a></li>
@@ -45,5 +55,27 @@
         <p>&copy; 2025 T-Ben Talion | Alle Rechte vorbehalten</p>
         <p>Mit Besuch dieser Webseite werden die AGB akzeptiert.</p>
     </footer>
+
+    <!-- JavaScript für das Menü -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const sideMenu = document.getElementById('side-menu');
+
+        menuBtn.addEventListener('click', () => {
+            sideMenu.classList.remove('-translate-x-full');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            sideMenu.classList.add('-translate-x-full');
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!sideMenu.contains(event.target) && !menuBtn.contains(event.target)) {
+                sideMenu.classList.add('-translate-x-full');
+            }
+        });
+    </script>
+
 </body>
 </html>
