@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Über den Autor</title>
-  
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Tailwind Konfiguration für benutzerdefinierte Farben (optional) -->
+  <!-- Tailwind Konfiguration für benutzerdefinierte Farben -->
   <script>
     tailwind.config = {
       theme: {
@@ -21,31 +21,41 @@
     };
   </script>
 </head>
-<body class="bg-black text-white font-sans relative">
+<body class="bg-black text-white font-sans relative min-h-screen">
 
   <!-- Hintergrundbild -->
   <div class="fixed inset-0 z-0">
-    <img src="universum.jpg" alt="Universum Hintergrund" class="object-cover w-full h-full opacity-20">
+    <img src="universum.jpg" alt="Universum Hintergrund" class="object-cover w-full h-full opacity-20" />
   </div>
 
   <!-- Mobile Menü Button -->
-  <div class="md:hidden p-4 z-20 relative">
-    <button id="menuButton" class="text-primary border border-primary px-3 py-1 rounded">
+  <div class="md:hidden p-4 z-30 relative">
+    <button
+      id="menuButton"
+      class="text-primary border border-primary px-3 py-1 rounded focus:outline-none focus:ring-2 focus:ring-primary"
+      aria-label="Menü öffnen oder schließen"
+      aria-expanded="false"
+      aria-controls="sidebar"
+    >
       ☰ Menü
     </button>
   </div>
 
   <!-- Menü -->
-  <aside id="sidebar" class="bg-black bg-opacity-70 p-4 space-y-2 fixed top-0 left-0 h-full w-60 z-10 transform -translate-x-full md:translate-x-0 md:static md:block transition-transform duration-300 ease-in-out">
-    <h2 class="text-xl font-bold text-primary mb-4">Menü</h2>
-    <nav class="flex flex-col space-y-2">
-      <a href="index.html" class="hover:text-primary">Startseite</a>
-      <a href="about.html" class="hover:text-primary">Über mich</a>
-      <a href="meinebücher2.html" class="hover:text-primary">Meine Werke</a>
-      <a href="termine2.html" class="hover:text-primary">Termine</a>
-      <a href="agb2.html" class="hover:text-primary">AGB</a>
-      <a href="kontakt2.html" class="hover:text-primary">Kontakt</a>
-      <a href="impressum2.html" class="hover:text-primary">Impressum</a>
+  <aside
+    id="sidebar"
+    class="bg-black bg-opacity-70 p-6 space-y-4 fixed top-0 left-0 h-full w-60 z-20 transform -translate-x-full md:translate-x-0 md:static md:block transition-transform duration-300 ease-in-out overflow-auto"
+    aria-label="Seitennavigation"
+  >
+    <h2 class="text-xl font-bold text-primary mb-6">Menü</h2>
+    <nav class="flex flex-col space-y-3 text-lg font-medium">
+      <a href="index.html" class="hover:text-primary transition-colors">Startseite</a>
+      <a href="about.html" class="hover:text-primary transition-colors">Über mich</a>
+      <a href="meinebücher2.html" class="hover:text-primary transition-colors">Meine Werke</a>
+      <a href="termine2.html" class="hover:text-primary transition-colors">Termine</a>
+      <a href="agb2.html" class="hover:text-primary transition-colors">AGB</a>
+      <a href="kontakt2.html" class="hover:text-primary transition-colors">Kontakt</a>
+      <a href="impressum2.html" class="hover:text-primary transition-colors">Impressum</a>
     </nav>
   </aside>
 
@@ -53,23 +63,35 @@
   <main class="p-6 md:ml-60 relative z-10 transition-all">
     <!-- Autorenbild -->
     <div class="flex justify-center mb-6">
-      <img src="schatzi.jpg" alt="Autor" class="w-48 sm:w-64 h-auto rounded-full shadow-lg border-4 border-primary">
+      <img
+        src="schatzi.jpg"
+        alt="Autor"
+        class="w-48 sm:w-64 h-auto rounded-full shadow-lg border-4 border-primary"
+        loading="lazy"
+      />
     </div>
 
     <!-- Textbereich -->
-    <section class="max-w-3xl mx-auto bg-black bg-opacity-70 p-6 rounded-lg shadow-lg">
-      <p class="text-lg mb-6">
+    <section
+      class="max-w-3xl mx-auto bg-black bg-opacity-70 p-6 rounded-lg shadow-lg text-base sm:text-lg leading-relaxed"
+    >
+      <p class="mb-6">
         Ich bin wie jeder andere meiner Spezies aus einem Ei geschlüpft.
       </p>
 
-      <p class="text-lg mb-6">
+      <p class="mb-6">
         In der 11. Klasse hatte ich in beiden Halbjahren eine 5 in Deutsch auf dem Zeugnis zu stehen. Deswegen wollte ich Autor werden – um die Welt mit meiner schrecklichen Rechtschreibung und Ausdrucksweise zu unterjochen.
-   </p>
-      <p> Wenigstens bin ich in Englisch so gut, dass ich meine Bücher und die meiner Frau selbständig ins Englische übersetzt habe. </p>
-      <p> Und ganz so schlecht kann mein Deutsch nicht sein, da ich auch Lektorat anbiete, also bei Interesse einfach melden. :) </p>
+      </p>
 
-      
-      <h3 class="text-xl font-semibold text-primary mt-6 mb-2">Stationen meines Lebens:</h3>
+      <p class="mb-4">
+        Wenigstens bin ich in Englisch so gut, dass ich meine Bücher und die meiner Frau selbständig ins Englische übersetzt habe.
+      </p>
+
+      <p class="mb-6">
+        Und ganz so schlecht kann mein Deutsch nicht sein, da ich auch Lektorat anbiete, also bei Interesse einfach melden. :)
+      </p>
+
+      <h3 class="text-xl font-semibold text-primary mt-6 mb-3">Stationen meines Lebens:</h3>
       <ul class="list-disc list-inside space-y-1 text-white text-base">
         <li>Bürokaufmann</li>
         <li>Studium Soziologie</li>
@@ -89,12 +111,16 @@
     const sidebar = document.getElementById('sidebar');
 
     menuButton.addEventListener('click', () => {
-      if (sidebar.classList.contains('-translate-x-full')) {
+      const isHidden = sidebar.classList.contains('-translate-x-full');
+      if (isHidden) {
         sidebar.classList.remove('-translate-x-full');
+        menuButton.setAttribute('aria-expanded', 'true');
       } else {
         sidebar.classList.add('-translate-x-full');
+        menuButton.setAttribute('aria-expanded', 'false');
       }
     });
   </script>
 </body>
 </html>
+
