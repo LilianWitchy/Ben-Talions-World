@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Ben Talion's World</title>
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Externe CSS-Datei -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="bg-black text-white">
-    
+
     <!-- Menü-Button -->
-    <button id="menu-btn" class="fixed top-4 left-4 bg-gray-800 text-white px-4 py-2 rounded">
+    <button id="menu-btn" class="fixed top-4 left-4 bg-gray-800 text-white px-4 py-2 rounded z-50" aria-label="Menü öffnen">
         ☰ Menü
     </button>
 
     <!-- Seitenmenü -->
-    <nav id="side-menu" class="fixed top-0 left-0 w-64 h-full bg-black bg-opacity-90 p-4 transform -translate-x-full transition-transform duration-300">
+    <nav id="side-menu" class="fixed top-0 left-0 h-full bg-black bg-opacity-90 p-6 transform -translate-x-full transition-transform duration-300 w-64 max-w-full z-40" aria-label="Seitennavigation">
         <!-- Schließen-Button -->
-        <button id="close-btn" class="absolute top-4 right-4 text-white text-2xl">
+        <button id="close-btn" class="absolute top-4 right-4 text-white text-3xl leading-none" aria-label="Menü schließen">
             &times;
         </button>
 
-        <ul class="mt-10 space-y-4 text-white">
+        <ul class="mt-16 space-y-6 text-white text-lg font-medium">
             <li><a href="index.html" class="hover:text-yellow-400">Startseite</a></li>
             <li><a href="about.html" class="hover:text-yellow-400">Über mich</a></li>
             <li><a href="meinebücher.html" class="hover:text-yellow-400">Meine Bücher</a></li>
@@ -37,20 +37,27 @@
     </nav>
 
     <!-- Hauptinhalt -->
-  <div class="flex flex-col items-center text-center p-6">
-       <!-- Header mit Titel und Untertext -->
-<header class="text-center p-6 bg-black bg-opacity-80 w-full">
-    <h1 class="text-4xl font-bold text-yellow-400">Ben Talion's World</h1>
-    <p class="text-lg text-white mt-2">
-        Ein Reich zwischen Licht und Schatten, in dem uralte Kraftsteine über das Schicksal entscheiden.<br>
-       Diese Webseite ist gerade am Entstehen. Lass dich überraschen, welche Welten und Geschichten sich in den Tiefen der Dunkelheit verstecken und bald ins Licht tauchen werden.
-    </p>
+    <main class="flex flex-col items-center text-center p-6
+                 transition-margin duration-300
+                 md:ml-64"> <!-- Margin nur auf mittleren und größeren Bildschirmen -->
+        <!-- Header mit Titel und Untertext -->
+        <header class="text-center p-6 bg-black bg-opacity-80 w-full max-w-4xl">
+            <h1 class="text-4xl font-bold text-yellow-400">Ben Talion's World</h1>
+            <p class="text-lg text-white mt-2 leading-relaxed">
+                Ein Reich zwischen Licht und Schatten, in dem uralte Kraftsteine über das Schicksal entscheiden.<br />
+                Diese Webseite ist gerade am Entstehen. Lass dich überraschen, welche Welten und Geschichten sich in den Tiefen der Dunkelheit verstecken und bald ins Licht tauchen werden.
+            </p>
 
-<p> Neben meiner derzeitigen Tätigkeit widme ich mich mit großer Sorgfalt dem Lektorat von Texten. Wenn Sie Interesse an einer Zusammenarbeit haben, freue ich mich über eine Nachricht. </p>
-    
-    </div>
+            <p class="mt-4 max-w-prose">
+                Neben meiner derzeitigen Tätigkeit widme ich mich mit großer Sorgfalt dem Lektorat von Texten. Wenn Sie Interesse an einer Zusammenarbeit haben, freue ich mich über eine Nachricht.
+            </p>
+        </header>
+    </main>
 
-    <footer class="text-center mt-6 text-gray-300 ml-64">
+    <!-- Footer -->
+    <footer class="text-center mt-12 text-gray-300 p-4
+                   md:ml-64
+                   max-w-4xl mx-auto">
         <p>&copy; 2025 T-Ben Talion | Alle Rechte vorbehalten</p>
         <p>Mit Besuch dieser Webseite werden die AGB akzeptiert.</p>
     </footer>
@@ -61,17 +68,34 @@
         const closeBtn = document.getElementById('close-btn');
         const sideMenu = document.getElementById('side-menu');
 
-        menuBtn.addEventListener('click', () => {
+        function openMenu() {
             sideMenu.classList.remove('-translate-x-full');
+        }
+
+        function closeMenu() {
+            sideMenu.classList.add('-translate-x-full');
+        }
+
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Verhindert das sofortige Schließen
+            openMenu();
         });
 
         closeBtn.addEventListener('click', () => {
-            sideMenu.classList.add('-translate-x-full');
+            closeMenu();
         });
 
+        // Schließt Menü, wenn außerhalb geklickt wird
         document.addEventListener('click', (event) => {
             if (!sideMenu.contains(event.target) && !menuBtn.contains(event.target)) {
-                sideMenu.classList.add('-translate-x-full');
+                closeMenu();
+            }
+        });
+
+        // Optional: Menü per ESC-Taste schließen
+        document.addEventListener('keydown', (event) => {
+            if(event.key === 'Escape') {
+                closeMenu();
             }
         });
     </script>
