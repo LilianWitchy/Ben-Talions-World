@@ -1,122 +1,534 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ben Talion's World</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Externe CSS-Datei -->
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Impressum | Ben Talion's World</title>
+  <meta
+    name="description"
+    content="Impressum und Anbieterkennzeichnung von Ben Talion's World, einem Projekt von Lilians Witchy World."
+  >
+  <meta name="theme-color" content="#111018">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --bg: #111018;
+      --bg-soft: #191622;
+      --panel: rgba(25, 22, 34, 0.88);
+      --text: #e9e2df;
+      --muted: #b6abb7;
+      --gold: #c7a66a;
+      --gold-soft: rgba(199, 166, 106, 0.22);
+      --wine: #6e344b;
+      --border: rgba(199, 166, 106, 0.23);
+      --max-width: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(
+          ellipse at 12% 8%,
+          rgba(78, 52, 105, 0.20),
+          transparent 38%
+        ),
+        radial-gradient(
+          ellipse at 92% 34%,
+          rgba(110, 52, 75, 0.13),
+          transparent 34%
+        ),
+        var(--bg);
+      font-family: "Crimson Pro", Georgia, serif;
+      font-size: 19px;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--gold);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: #ead3a2;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 4px;
+    }
+
+    .site-header {
+      position: relative;
+      z-index: 5;
+      border-bottom: 1px solid var(--border);
+      background: rgba(17, 16, 24, 0.88);
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      width: min(var(--max-width), calc(100% - 40px));
+      min-height: 94px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      flex-direction: column;
+      line-height: 1.25;
+      text-decoration: none;
+    }
+
+    .brand-name {
+      color: var(--gold);
+      font-family: "Cinzel", Georgia, serif;
+      font-size: 21px;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+    }
+
+    .brand-tagline {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 14px;
+      letter-spacing: 0.035em;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    .site-nav a {
+      color: var(--text);
+      font-family: "Cinzel", Georgia, serif;
+      font-size: 12px;
+      letter-spacing: 0.055em;
+    }
+
+    .site-nav a:hover,
+    .site-nav a[aria-current="page"] {
+      color: var(--gold);
+    }
+
+    .menu-toggle {
+      display: none;
+      padding: 9px 13px;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      color: var(--gold);
+      background: transparent;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    main {
+      width: min(850px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 76px 0 100px;
+    }
+
+    .page-intro {
+      margin-bottom: 44px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--gold);
+      font-family: "Cinzel", Georgia, serif;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2 {
+      font-family: "Cinzel", Georgia, serif;
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    h1 {
+      margin: 0;
+      color: #f0e8e2;
+      font-size: clamp(36px, 6vw, 56px);
+      letter-spacing: 0.025em;
+    }
+
+    .intro-text {
+      max-width: 650px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 21px;
+    }
+
+    .content-panel {
+      padding: clamp(24px, 5vw, 42px);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(39, 31, 47, 0.72),
+          rgba(22, 20, 29, 0.92) 62%
+        );
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    .content-section + .content-section {
+      margin-top: 36px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(199, 166, 106, 0.15);
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      color: var(--gold);
+      font-size: 20px;
+      letter-spacing: 0.025em;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    address {
+      color: var(--text);
+      font-style: normal;
+    }
+
+    .contact-link {
+      overflow-wrap: anywhere;
+    }
+
+    .legal-note {
+      margin-top: 28px;
+      padding-left: 18px;
+      border-left: 2px solid var(--wine);
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--border);
+      background: rgba(10, 9, 15, 0.58);
+    }
+
+    .footer-inner {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin: 0 auto;
+      padding: 28px 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .footer-copy {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .footer-links a {
+      font-size: 15px;
+    }
+
+    @media (max-width: 760px) {
+      .header-inner {
+        min-height: 80px;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 15px 0;
+      }
+
+      .brand-name {
+        font-size: 18px;
+      }
+
+      .brand-tagline {
+        font-size: 13px;
+      }
+
+      .menu-toggle {
+        display: inline-block;
+      }
+
+      .site-nav {
+        display: none;
+        width: 100%;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 0 4px;
+      }
+
+      .site-nav.is-open {
+        display: flex;
+      }
+
+      .site-nav a {
+        padding: 11px 0;
+        border-top: 1px solid rgba(199, 166, 106, 0.12);
+        font-size: 13px;
+      }
+
+      main {
+        padding: 52px 0 68px;
+      }
+
+      .page-intro {
+        margin-bottom: 28px;
+      }
+
+      .content-panel {
+        padding: 24px 20px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
 </head>
-<body class="flex flex-col items-center justify-center min-h-screen">
 
-    <!-- Menü-Button -->
-     <!-- Menü-Button -->
-    <button id="menu-btn" class="fixed top-4 left-4 bg-gray-800 text-white px-4 py-2 rounded z-50" aria-label="Menü öffnen">
-        ☰ Menü
-    </button>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Ben Talion's World – Startseite">
+        <span class="brand-name">BEN TALION</span>
+        <span class="brand-tagline">Zwischen Licht und Schatten</span>
+      </a>
 
-    <!-- Seitenmenü -->
-    <nav id="side-menu" class="fixed top-0 left-0 h-full bg-black bg-opacity-90 p-6 transform -translate-x-full transition-transform duration-300 w-64 max-w-full z-40" aria-label="Seitennavigation">
-        <!-- Schließen-Button -->
-        <button id="close-btn" class="absolute top-4 right-4 text-white text-3xl leading-none" aria-label="Menü schließen">
-            &times;
-        </button>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="main-navigation"
+      >
+        Menü
+      </button>
 
-    <!-- Seitenmenü -->
-  <ul class="mt-16 space-y-6 text-white text-lg font-medium">
-            <li><a href="index.html" class="hover:text-yellow-400">Startseite</a></li>
-            <li><a href="about.html" class="hover:text-yellow-400">Über mich</a></li>
-            <li><a href="meinebücher.html" class="hover:text-yellow-400">Meine Bücher</a></li>
-  
-            <li><a href="impressum.html" class="hover:text-yellow-400">Impressum</a></li>
-            <li><a href="agb.html" class="hover:text-yellow-400">AGB</a></li>
-        </ul>
-    </nav>
+      <nav class="site-nav" id="main-navigation" aria-label="Hauptnavigation">
+        <a href="index.html">Startseite</a>
+        <a href="about.html">Über mich</a>
+        <a href="meine-buecher.html">Meine Bücher</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="impressum.html" aria-current="page">Impressum</a>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Header -->
-    <header class="text-center text-yellow-400 text-4xl font-bold p-6 bg-black bg-opacity-80">
-        Ben Talion's World
+  <main>
+    <header class="page-intro">
+      <p class="eyebrow">Rechtliche Angaben</p>
+      <h1>Impressum.</h1>
+      <p class="intro-text">
+        Die Angaben zur verantwortlichen Person und zu diesem Projekt.
+      </p>
     </header>
 
+    <article class="content-panel">
+      <section class="content-section">
+        <h2>Angaben gemäß § 5 DDG</h2>
 
+        <address>
+          <strong>Lilian Lübke</strong><br>
+          Gewerbe: Lilians Witchy World<br>
+          Winterhuder Weg 29<br>
+          7. Bestand<br>
+          22085 Hamburg<br>
+          Deutschland
+        </address>
 
-  <div class="bg-black bg-opacity-70 p-6 rounded-lg shadow-lg max-w-4xl mx-auto mt-8 text-white">
-    <h1 class="text-3xl font-bold text-yellow-400 text-center">Impressum</h1>
-  <p><strong>Angaben gemäß § 5 TMG</strong></p>
-
-<p>
-Inhaberin: Lilian Lübke<br>
-Gewerbe: Lilians Witchy World<br>
-Winterhuder Weg 29<br>
-  7. Bestand <br>
-22085 Hamburg<br>
-Deutschland
-</p>
-
-   <h2>Kontakt:</h2>
-<p>E-Mail: ben_talion@proton.me</p>
-
-<p>
-Die Webseite „Ben-Talions-World“ ist ein Projekt von Lilians Witchy World.
-</p>
-
-<p><strong>Verantwortlich für den Inhalt gemäß § 18 Abs. 2 MStV</strong></p>
-
-<p>
-Lilian Lübke<br>
-Winterhuder Weg 29<br>
-  7. Bestand <br>
-22085 Hamburg
-</p>
-
-
-
-
-
-     <p><strong>Haftung für Inhalte:</strong></p>
-        <p>
-            Die Inhalte meiner Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.
+        <p style="margin-top: 18px;">
+          <strong>E-Mail:</strong>
+          <a class="contact-link" href="mailto:ben_talion@proton.me">
+            ben_talion@proton.me
+          </a>
         </p>
 
-        <p><strong>Haftung für Links:</strong></p>
         <p>
-            Meine Seite enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.
+          Ben-Talions-World ist ein Projekt von Lilians Witchy World.
+        </p>
+      </section>
+
+      <section class="content-section">
+        <h2>Verantwortlich für den Inhalt</h2>
+
+        <p>
+          Verantwortlich für den Inhalt nach § 18 Abs. 2
+          Medienstaatsvertrag (MStV):
         </p>
 
-        <p><strong>Urheberrecht:</strong></p>
+        <address>
+          Lilian Lübke<br>
+          Winterhuder Weg 29<br>
+          7. Bestand<br>
+          22085 Hamburg<br>
+          Deutschland
+        </address>
+      </section>
+
+      <section class="content-section">
+        <h2>Haftung für Inhalte</h2>
+
         <p>
-            Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+          Als Diensteanbieterin bin ich gemäß den allgemeinen gesetzlichen
+          Vorschriften für eigene Inhalte auf diesen Seiten verantwortlich.
+          Ich bin jedoch nicht verpflichtet, übermittelte oder gespeicherte
+          fremde Informationen allgemein zu überwachen oder aktiv nach
+          Umständen zu suchen, die auf eine rechtswidrige Tätigkeit hinweisen.
         </p>
-       
-</div>
 
-    <!-- JavaScript für das Menü -->
-    <script>
-        const menuBtn = document.getElementById('menu-btn');
-        const closeBtn = document.getElementById('close-btn');
-        const sideMenu = document.getElementById('side-menu');
+        <p>
+          Verpflichtungen zur Entfernung oder Sperrung der Nutzung von
+          Informationen nach den allgemeinen gesetzlichen Vorschriften
+          bleiben hiervon unberührt. Eine Haftung ist insoweit erst ab dem
+          Zeitpunkt möglich, zu dem eine konkrete Rechtsverletzung bekannt
+          wird. Bei Bekanntwerden entsprechender Rechtsverletzungen werde
+          ich die betreffenden Inhalte zeitnah prüfen und gegebenenfalls
+          entfernen.
+        </p>
+      </section>
 
-        // Öffnen des Menüs
-        menuBtn.addEventListener('click', () => {
-            sideMenu.classList.remove('-translate-x-full'); // Menü öffnen
-        });
+      <section class="content-section">
+        <h2>Haftung für externe Links</h2>
 
-        // Schließen des Menüs
-        closeBtn.addEventListener('click', () => {
-            sideMenu.classList.add('-translate-x-full'); // Menü schließen
-        });
+        <p>
+          Diese Website kann Links zu externen Websites Dritter enthalten,
+          auf deren Inhalte ich keinen Einfluss habe. Für diese fremden
+          Inhalte kann daher keine Gewähr übernommen werden. Verantwortlich
+          ist stets der jeweilige Anbieter oder Betreiber der verlinkten
+          Seiten.
+        </p>
 
-        // Optional: Menü schließen, wenn man außerhalb des Menüs klickt
-        document.addEventListener('click', (event) => {
-            if (!sideMenu.contains(event.target) && !menuBtn.contains(event.target)) {
-                sideMenu.classList.add('-translate-x-full'); // Menü schließen
-            }
-        });
-    </script>
+        <p>
+          Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf
+          mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren
+          zu diesem Zeitpunkt nicht erkennbar. Eine permanente inhaltliche
+          Kontrolle der verlinkten Seiten ist ohne konkrete Anhaltspunkte
+          einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von
+          Rechtsverletzungen werde ich entsprechende Links prüfen und
+          gegebenenfalls entfernen.
+        </p>
+      </section>
 
+      <section class="content-section">
+        <h2>Urheberrecht</h2>
+
+        <p>
+          Die von mir erstellten Inhalte und Werke auf dieser Website
+          unterliegen dem deutschen Urheberrecht. Jede Verwertung außerhalb
+          der Grenzen des Urheberrechts bedarf der vorherigen schriftlichen
+          Zustimmung der jeweiligen Rechteinhaberin oder des Rechteinhabers.
+        </p>
+
+        <p>
+          Downloads und Kopien dieser Seite sind nur für den privaten,
+          nicht kommerziellen Gebrauch gestattet, soweit keine abweichenden
+          gesetzlichen Regelungen gelten.
+        </p>
+
+        <p>
+          Soweit Inhalte auf dieser Website nicht von mir erstellt wurden,
+          werden die Rechte Dritter beachtet und entsprechende Inhalte
+          nach Möglichkeit gekennzeichnet. Solltest du dennoch auf eine
+          mögliche Urheberrechtsverletzung aufmerksam werden, freue ich
+          mich über einen Hinweis. Bei Bekanntwerden von Rechtsverletzungen
+          werde ich die betreffenden Inhalte prüfen und gegebenenfalls
+          entfernen.
+        </p>
+      </section>
+
+      <p class="legal-note">
+        Bei Fragen zu dieser Website kannst du mich über die oben angegebene
+        E-Mail-Adresse erreichen.
+      </p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-copy">
+        © <span id="current-year"></span> Ben Talion's World
+      </div>
+
+      <nav class="footer-links" aria-label="Rechtliche Navigation">
+        <a href="kontakt.html">Kontakt</a>
+        <a href="impressum.html" aria-current="page">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="agb.html">Nutzungsbedingungen</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navigation = document.querySelector("#main-navigation");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+
+      menuToggle.setAttribute("aria-expanded", String(!isOpen));
+      navigation.classList.toggle("is-open", !isOpen);
+    });
+
+    document.querySelector("#current-year").textContent =
+      new Date().getFullYear();
+  </script>
 </body>
 </html>
