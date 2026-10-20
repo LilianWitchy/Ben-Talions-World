@@ -1,130 +1,333 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Über den Autor</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111018">
+  <meta name="description" content="Ben Talion – Autor, Übersetzer und Lektor. Ein ungewöhnlicher Lebensweg, trockener Humor und Geschichten zwischen Licht und Schatten.">
+  <title>Über mich – Ben Talion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Crimson+Pro:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --night: #111018;
+      --paper: #e9e3df;
+      --muted: #aaa1ad;
+      --gold: #cdb47c;
+      --wine: #80505f;
+      --rule: rgba(205,180,124,.25);
+      --measure: 1080px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--paper);
+      background: var(--night);
+      font: 17px/1.78 "Crimson Pro", Georgia, serif;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 82% 17%, rgba(95,53,75,.18), transparent 38%),
+        radial-gradient(ellipse at 7% 70%, rgba(65,60,89,.13), transparent 35%),
+        linear-gradient(135deg, #111018 0%, #171520 54%, #111018 100%);
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 13px;
+      z-index: -1;
+      pointer-events: none;
+      border: 1px solid rgba(205,180,124,.07);
+    }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 5px; }
+    ::selection { color: var(--night); background: var(--gold); }
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(17,16,24,.92);
+      border-bottom: 1px solid rgba(205,180,124,.15);
+      backdrop-filter: blur(12px);
+    }
+    .header-inner {
+      width: min(calc(100% - 48px), var(--measure));
+      min-height: 78px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+    .brand { display: flex; flex-direction: column; flex-shrink: 0; line-height: 1.25; }
+    .brand-name { color: var(--gold); font: 500 1.05rem/1.4 "Cinzel", serif; letter-spacing: .16em; }
+    .brand-tagline { margin-top: 4px; color: var(--muted); font: 400 .68rem/1.4 "Inter", sans-serif; letter-spacing: .08em; }
+    .desktop-nav { display: flex; align-items: center; gap: clamp(15px, 2.4vw, 28px); }
+    .desktop-nav a, .mobile-nav a {
+      color: #c0b8c3;
+      font: 400 .76rem/1.5 "Inter", sans-serif;
+      transition: color .2s ease;
+    }
+    .desktop-nav a:hover, .mobile-nav a:hover, .desktop-nav a[aria-current="page"], .mobile-nav a[aria-current="page"] { color: var(--gold); }
+    .desktop-nav a[aria-current="page"] { text-decoration: underline; text-decoration-color: var(--wine); text-underline-offset: 8px; }
+    .menu-toggle {
+      display: none;
+      padding: 9px 12px;
+      border: 1px solid var(--rule);
+      border-radius: 0;
+      color: var(--gold);
+      background: transparent;
+      font: 400 .78rem "Inter", sans-serif;
+      cursor: pointer;
+    }
+    .mobile-nav { display: none; padding: 12px 24px 22px; border-top: 1px solid rgba(205,180,124,.12); }
+    .mobile-nav.is-open { display: flex; flex-direction: column; gap: 13px; }
 
-  <!-- Tailwind Konfiguration für benutzerdefinierte Farben -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#facc15',
-          }
-        }
-      }
-    };
-  </script>
+    main { width: min(calc(100% - 48px), var(--measure)); margin: 0 auto; }
+    .page-intro { padding: clamp(54px, 8vw, 94px) 0 36px; }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin: 0 0 16px;
+      color: var(--gold);
+      font: 500 .68rem/1.5 "Inter", sans-serif;
+      letter-spacing: .23em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--wine); }
+    h1, h2, h3 { font-family: "Cinzel", Georgia, serif; font-weight: 400; }
+    h1 { max-width: 800px; margin: 0; font-size: clamp(2.45rem, 6vw, 5.1rem); line-height: 1.13; letter-spacing: -.035em; }
+    h1 span { color: var(--gold); }
+    .intro-bottom { display: flex; align-items: center; gap: 18px; margin-top: 25px; }
+    .intro-rule { width: 72px; height: 1px; background: linear-gradient(90deg, var(--gold), var(--wine)); }
+    .intro-note { color: var(--muted); font: italic .9rem/1.5 "Crimson Pro", Georgia, serif; }
+
+    .author-layout {
+      display: grid;
+      grid-template-columns: minmax(230px, .78fr) minmax(0, 1.5fr);
+      gap: clamp(38px, 7vw, 88px);
+      align-items: start;
+      padding: 12px 0 88px;
+    }
+    .author-aside { position: relative; padding-top: 8px; }
+    .portrait-wrap { position: relative; width: 100%; max-width: 340px; }
+    .portrait-wrap::before {
+      content: "";
+      position: absolute;
+      inset: 12px -12px -12px 12px;
+      border: 1px solid rgba(205,180,124,.32);
+      pointer-events: none;
+    }
+    .portrait {
+      display: block;
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(.72) contrast(1.04) brightness(.88);
+      background: #211b28;
+    }
+    .portrait-caption { margin: 28px 0 0; color: var(--gold); font: 500 1.25rem/1.5 "Cinzel", serif; letter-spacing: .04em; }
+    .portrait-subtitle { margin: 4px 0 0; color: var(--muted); font: 400 .7rem/1.6 "Inter", sans-serif; letter-spacing: .04em; }
+    .aside-ornament { display: flex; align-items: center; gap: 10px; margin: 25px 0 19px; color: var(--wine); }
+    .aside-ornament::before, .aside-ornament::after { content: ""; display: block; width: 31px; height: 1px; background: var(--rule); }
+    .aside-ornament span { font-size: .8rem; }
+    .aside-note { max-width: 280px; margin: 0; color: #bcb2bf; font-size: 1.08rem; line-height: 1.65; }
+    .aside-note em { color: #e1d4b5; }
+
+    .bio { min-width: 0; }
+    .bio p { margin: 0 0 24px; color: #d9d1d9; font-size: clamp(1.08rem, 1.4vw, 1.22rem); }
+    .bio .opening {
+      position: relative;
+      margin: 0 0 31px;
+      padding: 0 0 25px;
+      color: #f0e5d1;
+      font: 400 clamp(1.45rem, 2.6vw, 2rem)/1.5 "Crimson Pro", Georgia, serif;
+    }
+    .bio .opening::after { content: ""; position: absolute; left: 0; bottom: 0; width: 48px; height: 1px; background: var(--wine); }
+    .bio strong { color: var(--gold); font-weight: 600; }
+    .bio a.inline-link { color: #d0b6c1; border-bottom: 1px solid rgba(128,80,95,.8); transition: color .2s ease, border-color .2s ease; }
+    .bio a.inline-link:hover { color: var(--gold); border-color: var(--gold); }
+
+    .stations { margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--rule); }
+    .section-kicker { margin: 0 0 8px; color: var(--wine); font: 500 .65rem/1.5 "Inter", sans-serif; letter-spacing: .2em; text-transform: uppercase; }
+    .stations h2 { margin: 0; color: var(--gold); font-size: clamp(1.45rem, 3vw, 2rem); line-height: 1.35; }
+    .stations-intro { margin: 9px 0 19px !important; color: var(--muted) !important; font-size: 1rem !important; font-style: italic; }
+    .life-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 28px; margin: 0; padding: 0; list-style: none; }
+    .life-list li { display: flex; align-items: baseline; gap: 12px; padding: 11px 0; border-bottom: 1px solid rgba(205,180,124,.11); color: #d9d1d9; font-size: 1.04rem; }
+    .life-list li::before { content: ""; flex: 0 0 5px; width: 5px; height: 5px; border-radius: 50%; background: var(--wine); transform: translateY(-2px); }
+    .contact-line { display: block; margin-top: 35px; padding-top: 22px; border-top: 1px solid rgba(205,180,124,.13); color: var(--muted); font-size: 1.04rem; }
+    .contact-line a { display: inline-block; margin-left: 5px; color: var(--gold); border-bottom: 1px solid rgba(205,180,124,.45); }
+    .contact-line a:hover { color: #f0dfb2; }
+
+    .site-footer { border-top: 1px solid rgba(205,180,124,.15); background: rgba(8,7,13,.38); }
+    .footer-inner { width: min(calc(100% - 48px), var(--measure)); margin: 0 auto; padding: 24px 0; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; color: #928996; font: 400 .7rem/1.6 "Inter", sans-serif; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 19px; }
+    .footer-links a:hover { color: var(--gold); }
+
+    @media (max-width: 820px) {
+      .desktop-nav { gap: 14px; }
+      .desktop-nav a { font-size: .7rem; }
+      .author-layout { grid-template-columns: minmax(190px, .72fr) minmax(0, 1.3fr); gap: 34px; }
+    }
+    @media (max-width: 680px) {
+      body::after { inset: 7px; }
+      .header-inner { min-height: 70px; width: calc(100% - 36px); }
+      .desktop-nav { display: none; }
+      .menu-toggle { display: inline-flex; align-items: center; gap: 8px; }
+      main, .footer-inner { width: calc(100% - 36px); }
+      .page-intro { padding: 54px 0 30px; }
+      .author-layout { grid-template-columns: 1fr; gap: 43px; padding-bottom: 58px; }
+      .author-aside { display: grid; grid-template-columns: 112px minmax(0, 1fr); column-gap: 24px; align-items: center; }
+      .portrait-wrap { width: 112px; grid-row: span 3; }
+      .portrait-wrap::before { inset: 6px -6px -6px 6px; }
+      .portrait { width: 112px; height: 138px; aspect-ratio: auto; }
+      .portrait-caption { align-self: end; margin: 0; font-size: 1.05rem; }
+      .portrait-subtitle { align-self: start; font-size: .64rem; }
+      .aside-ornament, .aside-note { display: none; }
+      .life-list { grid-template-columns: 1fr; }
+      .stations { margin-top: 40px; }
+      .contact-line a { margin-left: 0; }
+    }
+    @media (max-width: 390px) {
+      .brand-name { font-size: .94rem; }
+      .brand-tagline { font-size: .61rem; }
+      .bio .opening { font-size: 1.4rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
 </head>
-<body class="bg-black text-white font-sans relative min-h-screen">
-
-  <!-- Hintergrundbild -->
-  <div class="fixed inset-0 z-0">
-    <img src="universum.jpg" alt="Universum Hintergrund" class="object-cover w-full h-full opacity-20" />
-  </div>
-
-  <!-- Menü-Button -->
-  <button id="menu-btn" class="fixed top-4 left-4 bg-gray-800 text-white px-4 py-2 rounded z-50" aria-label="Menü öffnen">
-    ☰ Menü
-  </button>
-
-  <!-- Seitenmenü -->
-  <nav id="side-menu" class="fixed top-0 left-0 h-full bg-black bg-opacity-90 p-6 transform -translate-x-full transition-transform duration-300 w-64 max-w-full z-40" aria-label="Seitennavigation">
-    
-    <!-- Schließen-Button -->
-    <button id="close-btn" class="absolute top-4 right-4 text-white text-3xl leading-none" aria-label="Menü schließen">
-      &times;
-    </button>
-
-    <h2 class="text-xl font-bold text-primary mb-6">Menü</h2>
-
-    <div class="flex flex-col space-y-3 text-lg font-medium">
-      <a href="index.html" class="hover:text-primary transition-colors">Startseite</a>
-      <a href="about.html" class="hover:text-primary transition-colors">Über mich</a>
-      <a href="meinebücher.html" class="hover:text-primary transition-colors">Meine Werke</a>
-
-      <a href="agb.html" class="hover:text-primary transition-colors">AGB</a>
-      <a href="kontakt.html" class="hover:text-primary transition-colors">Kontakt</a>
-      <a href="impressum.html" class="hover:text-primary transition-colors">Impressum</a>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Ben Talion – Startseite">
+        <span class="brand-name">BEN TALION</span>
+        <span class="brand-tagline">Zwischen Licht und Schatten</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Hauptnavigation">
+        <a href="index.html">Startseite</a>
+        <a href="about.html" aria-current="page">Über mich</a>
+        <a href="meinebücher.html">Meine Bücher</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav">
+        <span aria-hidden="true">☰</span><span>Menü</span>
+      </button>
     </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation" hidden>
+      <a href="index.html">Startseite</a>
+      <a href="about.html" aria-current="page">Über mich</a>
+      <a href="meinebücher.html">Meine Bücher</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="agb.html">AGB</a>
+    </nav>
+  </header>
 
-  </nav>
-
-  <!-- Hauptinhalt -->
-  <main class="p-6 md:ml-60 relative z-10 transition-all">
-    
-    <!-- Autorenbild -->
-    <div class="flex justify-center mb-6">
-      <img
-        src="schatzi.jpg"
-        alt="Autor"
-        class="w-48 sm:w-64 h-auto rounded-full shadow-lg border-4 border-primary"
-        loading="lazy"
-      />
-    </div>
-
-    <!-- Textbereich -->
-    <section class="max-w-3xl mx-auto bg-black bg-opacity-70 p-6 rounded-lg shadow-lg text-base sm:text-lg leading-relaxed">
-      
-      <p class="mb-6">
-        Ich bin wie jeder andere meiner Spezies aus einem Ei geschlüpft.
-      </p>
-
-      <p class="mb-6">
-        In der 11. Klasse hatte ich in beiden Halbjahren eine 5 in Deutsch auf dem Zeugnis zu stehen. Deswegen wollte ich Autor werden – um die Welt mit meiner schrecklichen Rechtschreibung und Ausdrucksweise zu unterjochen.
-      </p>
-
-      <p class="mb-4">
-        Wenigstens bin ich in Englisch so gut, dass ich meine Bücher und die meiner Frau selbständig ins Englische übersetzt habe.
-      </p>
-
-      <p class="mb-6">
-        Und ganz so schlecht kann mein Deutsch nicht sein, da ich auch Lektorat anbiete, also bei Interesse einfach melden. :)
-      </p>
-
-      <h3 class="text-xl font-semibold text-primary mt-6 mb-3">Stationen meines Lebens:</h3>
-      <ul class="list-disc list-inside space-y-1 text-white text-base">
-        <li>Bürokaufmann</li>
-        <li>Studium Soziologie</li>
-        <li>Leitung eines Abgeordnetenbüros</li>
-        <li>Weiterbildung zur Buchhaltungsfachkraft</li>
-        <li>Senior IT Analyst</li>
-        <li>Intensiv Care Officer</li>
-        <li>Weiterbildung Data Analyst – Python</li>
-        <li>Autor</li>
-      </ul>
-
+  <main>
+    <section class="page-intro" aria-labelledby="page-title">
+      <p class="eyebrow">Über den Autor</p>
+      <h1 id="page-title">Nicht ganz von <span>dieser Welt.</span></h1>
+      <div class="intro-bottom">
+        <div class="intro-rule" aria-hidden="true"></div>
+        <span class="intro-note">Ein paar Worte. Keine große Legende.</span>
+      </div>
     </section>
+
+    <div class="author-layout">
+      <aside class="author-aside" aria-label="Autorporträt">
+        <div class="portrait-wrap">
+          <img class="portrait" src="schatzi.jpg" alt="Porträt des Autors Ben Talion" loading="lazy">
+        </div>
+        <p class="portrait-caption">Ben Talion</p>
+        <p class="portrait-subtitle">Autor · Übersetzer · Lektor</p>
+        <div class="aside-ornament" aria-hidden="true"><span>✦</span></div>
+        <p class="aside-note">Manchmal beginnt eine Geschichte mit einem Ei. <em>Diese hier jedenfalls.</em></p>
+      </aside>
+
+      <article class="bio">
+        <p class="opening">Ich bin wie jeder andere meiner Spezies aus einem Ei geschlüpft.</p>
+
+        <p>In der 11. Klasse hatte ich in beiden Halbjahren eine <strong>5 in Deutsch</strong> auf dem Zeugnis zu stehen. Deswegen wollte ich Autor werden – um die Welt mit meiner schrecklichen Rechtschreibung und Ausdrucksweise zu unterjochen.</p>
+
+        <p>Wenigstens bin ich in Englisch so gut, dass ich meine Bücher und die meiner Frau selbständig ins Englische übersetzt habe.</p>
+
+        <p>Und ganz so schlecht kann mein Deutsch nicht sein, da ich auch Lektorat anbiete, also bei Interesse einfach <a class="inline-link" href="kontakt.html">melden</a>. :)</p>
+
+        <section class="stations" id="stationen" aria-labelledby="stations-title">
+          <p class="section-kicker">Die bisherigen Kapitel</p>
+          <h2 id="stations-title">Stationen meines Lebens</h2>
+          <p class="stations-intro">Ein paar berufliche Umwege gehören offenbar dazu.</p>
+          <ul class="life-list">
+            <li>Bürokaufmann</li>
+            <li>Studium Soziologie</li>
+            <li>Leitung eines Abgeordnetenbüros</li>
+            <li>Weiterbildung zur Buchhaltungsfachkraft</li>
+            <li>Senior IT Analyst</li>
+            <li>Intensiv Care Officer</li>
+            <li>Weiterbildung Data Analyst – Python</li>
+            <li>Autor</li>
+          </ul>
+        </section>
+
+        <div class="contact-line">
+          Fragen, Buchprojekt oder Interesse am Lektorat? <a href="kontakt.html">Schreib mir einfach.</a>
+        </div>
+      </article>
+    </div>
   </main>
 
-  <!-- JavaScript für mobiles Menü -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>© <span id="current-year">2026</span> T-Ben Talion. Alle Rechte vorbehalten.</span>
+      <nav class="footer-links" aria-label="Rechtliche Informationen">
+        <a href="kontakt.html">Kontakt</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="agb.html">AGB</a>
+      </nav>
+    </div>
+  </footer>
+
   <script>
-    const menuButton = document.getElementById('menu-btn');
-    const sidebar = document.getElementById('side-menu');
-    const closeButton = document.getElementById('close-btn');
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileNav = document.getElementById("mobile-nav");
 
-    menuButton.addEventListener('click', () => {
-      const isHidden = sidebar.classList.contains('-translate-x-full');
-      if (isHidden) {
-        sidebar.classList.remove('-translate-x-full');
-        menuButton.setAttribute('aria-expanded', 'true');
-      } else {
-        sidebar.classList.add('-translate-x-full');
-        menuButton.setAttribute('aria-expanded', 'false');
-      }
-    });
+    function setMenuOpen(open) {
+      mobileNav.hidden = !open;
+      mobileNav.classList.toggle("is-open", open);
+      menuToggle.setAttribute("aria-expanded", String(open));
+    }
 
-    closeButton.addEventListener('click', () => {
-      sidebar.classList.add('-translate-x-full');
-      menuButton.setAttribute('aria-expanded', 'false');
+    menuToggle.addEventListener("click", () => {
+      setMenuOpen(menuToggle.getAttribute("aria-expanded") !== "true");
     });
+    mobileNav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => setMenuOpen(false)));
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") setMenuOpen(false);
+    });
+    document.addEventListener("click", event => {
+      if (!mobileNav.hidden && !mobileNav.contains(event.target) && !menuToggle.contains(event.target)) setMenuOpen(false);
+    });
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 680) setMenuOpen(false);
+    });
+    document.getElementById("current-year").textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
 
